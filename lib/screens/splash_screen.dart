@@ -26,7 +26,7 @@ class _SplashScreenState extends State<SplashScreen> {
       Navigator.of(context).pushReplacementNamed(HomeScreen.routeName);
     } else {
       Navigator.of(context).pushReplacementNamed(OnBoardingScreen.routeName);
-      // prefs.setBool("onboarded", true);
+      prefs.setBool("onboarded", true);
     }
   }
 
