@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:riafy_flutter_challenge/modals/cart_item.dart';
 import 'package:riafy_flutter_challenge/modals/product.dart';
 import 'package:riafy_flutter_challenge/strings.dart' as values;
 
@@ -76,7 +77,13 @@ class StoreProvider with ChangeNotifier {
     )
   ];
 
+  List<CartItem> _cart = [];
+
   get products {
     return [..._products];
+  }
+
+  get cart {
+    return [..._cart];
   }
 }
