@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:riafy_flutter_challenge/providers/store_provider.dart';
 import 'package:riafy_flutter_challenge/screens/cart_screen.dart';
+import 'package:riafy_flutter_challenge/screens/search_screen.dart';
 import 'package:riafy_flutter_challenge/widgets/home_button.dart';
 
 class HomeHeader extends StatelessWidget {
@@ -28,7 +29,7 @@ class HomeHeader extends StatelessWidget {
               size: 25,
             ),
             onPress: () {
-              print("go to search");
+              Navigator.of(context).pushNamed(SearchScreen.routeName);
             },
           ),
           HomeButton(

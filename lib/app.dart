@@ -5,6 +5,7 @@ import 'package:riafy_flutter_challenge/screens/cart_screen.dart';
 import 'package:riafy_flutter_challenge/screens/home_screen.dart';
 import 'package:riafy_flutter_challenge/screens/onboarding_screen.dart';
 import 'package:riafy_flutter_challenge/screens/product_screen.dart';
+import 'package:riafy_flutter_challenge/screens/search_screen.dart';
 import 'package:riafy_flutter_challenge/screens/splash_screen.dart';
 import 'package:riafy_flutter_challenge/screens/wishlist_screen.dart';
 
@@ -26,6 +27,7 @@ class MyApp extends StatelessWidget {
           ProductScreen.routeName: (ctx) => ProductScreen(),
           CartScreen.routeName: (ctx) => CartScreen(),
           WishListScreen.routeName: (ctx) => WishListScreen(),
+          SearchScreen.routeName: (ctx) => SearchScreen(),
         },
         home: SplashScreen(),
       ),
