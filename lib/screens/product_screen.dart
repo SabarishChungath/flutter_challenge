@@ -25,6 +25,8 @@ class _ProductScreenState extends State<ProductScreen> {
 
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<StoreProvider>(context);
+
     return SafeArea(
         child: Scaffold(
       floatingActionButtonAnimator: FloatingActionButtonAnimator.scaling,
@@ -47,7 +49,15 @@ class _ProductScreenState extends State<ProductScreen> {
         ),
       ),
       backgroundColor: Colors.white,
-      appBar: headerRow(title: product?.name?.toUpperCase(), context: context),
+      appBar: headerRow(
+          title: product?.name?.toUpperCase(),
+          context: context,
+          rightIcon: provider.isPresentInWishList(product)
+              ? Icons.favorite
+              : Icons.favorite_outline_sharp,
+          onPressRightIcon: () {
+            provider.toggleWishList(product);
+          }),
       body: Container(
         width: double.infinity,
         height: double.infinity,

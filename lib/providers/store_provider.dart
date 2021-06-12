@@ -89,6 +89,8 @@ class StoreProvider with ChangeNotifier {
 
   List<CartItem> _cart = [];
 
+  List<Product> _wishList = [];
+
   Filter _currentFilter = Filter.none;
 
   set currentFilter(value) {
@@ -179,6 +181,39 @@ class StoreProvider with ChangeNotifier {
       }
     });
     return isPresent;
+  }
+
+  void addToWishList(Product product) {
+    _wishList.add(product);
+    notifyListeners();
+  }
+
+  void removeFromWishList(Product product) {
+    _wishList.removeWhere((element) => element.sku == product.sku);
+    notifyListeners();
+  }
+
+  bool isPresentInWishList(Product product) {
+    bool isPresent = false;
+    for (var item in _wishList) {
+      if (item.sku == product.sku) {
+        isPresent = true;
+        break;
+      }
+    }
+    return isPresent;
+  }
+
+  toggleWishList(Product product) {
+    if (isPresentInWishList(product)) {
+      removeFromWishList(product);
+    } else {
+      addToWishList(product);
+    }
+  }
+
+  get wishList {
+    return [..._wishList];
   }
 }
 

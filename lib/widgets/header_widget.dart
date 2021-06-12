@@ -33,6 +33,7 @@ Widget headerRow(
           rightIcon != null
               ? headerButton(
                   icon: rightIcon,
+                  onPress: () => onPressRightIcon(),
                   iconSize: rightIconSize ?? 28.0,
                   borderColor: Colors.white)
               : SizedBox()

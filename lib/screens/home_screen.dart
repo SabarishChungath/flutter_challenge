@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:provider/provider.dart';
 import 'package:riafy_flutter_challenge/providers/store_provider.dart';
+import 'package:riafy_flutter_challenge/screens/wishlist_screen.dart';
 import 'package:riafy_flutter_challenge/widgets/header_widget.dart';
 import 'package:riafy_flutter_challenge/widgets/home_header.dart';
 import 'package:riafy_flutter_challenge/widgets/product_widget.dart';
@@ -21,7 +22,13 @@ class _HomeScreenState extends State<HomeScreen> {
     return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.white,
-        appBar: headerRow(title: " ", context: context),
+        appBar: headerRow(
+            title: "HOME",
+            context: context,
+            rightIcon: Icons.favorite,
+            onPressRightIcon: () {
+              Navigator.of(context).pushNamed(WishListScreen.routeName);
+            }),
         body: Container(
           width: double.infinity,
           height: double.infinity,

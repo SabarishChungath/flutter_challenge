@@ -6,6 +6,7 @@ import 'package:riafy_flutter_challenge/screens/home_screen.dart';
 import 'package:riafy_flutter_challenge/screens/onboarding_screen.dart';
 import 'package:riafy_flutter_challenge/screens/product_screen.dart';
 import 'package:riafy_flutter_challenge/screens/splash_screen.dart';
+import 'package:riafy_flutter_challenge/screens/wishlist_screen.dart';
 
 class MyApp extends StatelessWidget {
   @override
@@ -24,6 +25,7 @@ class MyApp extends StatelessWidget {
           HomeScreen.routeName: (ctx) => HomeScreen(),
           ProductScreen.routeName: (ctx) => ProductScreen(),
           CartScreen.routeName: (ctx) => CartScreen(),
+          WishListScreen.routeName: (ctx) => WishListScreen(),
         },
         home: SplashScreen(),
       ),
