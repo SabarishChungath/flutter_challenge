@@ -67,7 +67,7 @@ class HomeHeader extends StatelessWidget {
                   bgColor: Colors.black,
                   borderColor: Colors.white,
                   child: Text(
-                    "1",
+                    Provider.of<StoreProvider>(context).cart.length.toString(),
                     style: TextStyle(color: Colors.white),
                   ),
                   onPress: null,

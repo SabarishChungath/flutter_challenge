@@ -22,7 +22,8 @@ Widget headerRow(
           headerButton(
               icon: Icons.chevron_left,
               borderColor: Colors.white,
-              iconSize: 30),
+              iconSize: 30,
+              onPress: () => Navigator.of(context).maybePop()),
         ],
       ),
     ),
