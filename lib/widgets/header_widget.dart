@@ -18,12 +18,24 @@ Widget headerRow(
         vertical: 10.0,
       ),
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           headerButton(
               icon: Icons.chevron_left,
               borderColor: Colors.white,
               iconSize: 30,
               onPress: () => Navigator.of(context).maybePop()),
+          Text(
+            title,
+            style: TextStyle(
+                fontSize: 20, color: Colors.black, fontWeight: FontWeight.w700),
+          ),
+          rightIcon != null
+              ? headerButton(
+                  icon: rightIcon,
+                  iconSize: rightIconSize ?? 28.0,
+                  borderColor: Colors.white)
+              : SizedBox()
         ],
       ),
     ),

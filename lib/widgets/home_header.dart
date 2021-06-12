@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:riafy_flutter_challenge/providers/store_provider.dart';
+import 'package:riafy_flutter_challenge/screens/cart_screen.dart';
 import 'package:riafy_flutter_challenge/widgets/home_button.dart';
 
 class HomeHeader extends StatelessWidget {
@@ -47,32 +48,38 @@ class HomeHeader extends StatelessWidget {
                   });
             },
           ),
-          Container(
-            height: 40,
-            width: 120,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(8.86),
-              color: Colors.black,
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Text("Cart",
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 18,
-                        fontWeight: FontWeight.w600)),
-                HomeButton(
-                  length: 25,
-                  bgColor: Colors.black,
-                  borderColor: Colors.white,
-                  child: Text(
-                    Provider.of<StoreProvider>(context).cart.length.toString(),
-                    style: TextStyle(color: Colors.white),
-                  ),
-                  onPress: null,
-                )
-              ],
+          GestureDetector(
+            onTap: () => Navigator.pushNamed(context, CartScreen.routeName),
+            child: Container(
+              height: 40,
+              width: 120,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(8.86),
+                color: Colors.black,
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Text("Cart",
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 18,
+                          fontWeight: FontWeight.w600)),
+                  HomeButton(
+                    length: 25,
+                    bgColor: Colors.black,
+                    borderColor: Colors.white,
+                    child: Text(
+                      Provider.of<StoreProvider>(context)
+                          .cart
+                          .length
+                          .toString(),
+                      style: TextStyle(color: Colors.white),
+                    ),
+                    onPress: null,
+                  )
+                ],
+              ),
             ),
           ),
         ],
