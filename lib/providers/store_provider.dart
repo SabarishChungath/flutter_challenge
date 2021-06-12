@@ -79,11 +79,36 @@ class StoreProvider with ChangeNotifier {
 
   List<CartItem> _cart = [];
 
+  Filter _currentFilter = Filter.none;
+
+  set currentFilter(value) {
+    _currentFilter = value;
+    notifyListeners();
+  }
+
+  get currentFilter {
+    return _currentFilter;
+  }
+
   get products {
-    return [..._products];
+    switch (_currentFilter) {
+      case Filter.priceLessThan4:
+        var priceLessThan4 =
+            _products.where((product) => product.price <= 4).toList();
+        return priceLessThan4;
+        break;
+      case Filter.pricelessThan10:
+        var priceLessThan10 =
+            _products.where((product) => product.price <= 10).toList();
+        return priceLessThan10;
+      default:
+        return [..._products];
+    }
   }
 
   get cart {
     return [..._cart];
   }
 }
+
+enum Filter { priceLessThan4, pricelessThan10, none }
