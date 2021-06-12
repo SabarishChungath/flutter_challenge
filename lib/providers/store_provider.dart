@@ -215,6 +215,17 @@ class StoreProvider with ChangeNotifier {
   get wishList {
     return [..._wishList];
   }
+
+  double get grandTotal {
+    if (_cart.isEmpty) {
+      return 0.00;
+    }
+    double total = 0.00;
+    _cart.forEach((element) {
+      total += element.product.price * element.quantity;
+    });
+    return total;
+  }
 }
 
 enum Filter { priceLessThan4, pricelessThan10, none }

@@ -96,6 +96,35 @@ class _CartScreenState extends State<CartScreen> {
                               fontSize: 20, fontWeight: FontWeight.w600),
                         ),
                       )),
+            Visibility(
+              visible: provider.cart.isNotEmpty,
+              child: Container(
+                height: 50,
+                padding: EdgeInsets.symmetric(horizontal: 10.0),
+                decoration: BoxDecoration(
+                    color: Colors.black,
+                    borderRadius: BorderRadius.circular(7.0)),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "GrandTotal: ",
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 18,
+                          fontWeight: FontWeight.w700),
+                    ),
+                    Text(
+                      provider.grandTotal.toStringAsFixed(2),
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 18,
+                          fontWeight: FontWeight.w700),
+                    )
+                  ],
+                ),
+              ),
+            )
           ],
         ),
       ),
